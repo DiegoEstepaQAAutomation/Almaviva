@@ -7,7 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import com.demoautomatizacion.test.BaseTest;
+
+import com.demoautomatizacion.BaseTest;
+
 
 public class TestListener extends BaseTest implements ITestListener {
 

@@ -111,4 +111,35 @@ public class ExpedirMap extends BasePage {
 	protected By txtCiudad = By.id("ciudad");
 	protected By txtTelefono = By.id("telefono");
 	protected By txtCorreo = By.id("correo");
+	
+	
+	
+	//ClienteCargueMasivo
+	protected By btnModificarCliente = By.xpath("//*[@id='tbClientes']/tbody/tr[1]/td[9]/div/div[1]/a");
+	protected By txtConsultarNit = By.xpath("//input[contains(@formcontrolname,'termino')]");
+	protected By btnBuscar = By.xpath("//*[@id='contenido']/app-main/clientes-home/div/form/button[(text() = ' Buscar ')]");
+	protected By btnTipoBodega = By.xpath("//*[@id='contenido']/app-main/app-formulario/div/form/accordion/accordion-group[4]/div/div[1]/div/div/button");
+	protected By lblTobacco = By.xpath("//*[@id='contenido']/app-main/app-formulario/div/form/accordion/accordion-group[4]/div/div[2]/div/div[2]/div[2]/table/tbody/tr[12]/td[1]");
+	protected By btnTitulo = By.xpath("//*[@id='sidebar']/ul/li[4]/div/a");
+	protected By btnExpedir = By.xpath("//body/app-root/div/app-sidebar/nav/ul/li[4]/div/ul/li[1]/div/a");
+	protected By txtNitCargue = By.xpath("//*[@id='termino']");
+	protected By lblTipoDeDato = By.xpath("//*[@id='criterio']");
+	protected By lblRegistro = By.xpath("//*[@id='tbClientes']/tbody/tr[10]/td[1]");
+	protected By ModificarRegistro = By.xpath("//*[@id='tbClientes']/tbody/tr[9]/td[9]/div/a[1]");
+	
+	//*[@id="tbClientes"]/tbody/tr[9]/td[9]/div/a[1]
+	
+	
+	protected By btnDescargar = By.xpath("//*[@id='contenido']/main-titulos/app-titulo/div/form/div[1]/div/accordion/accordion-group[8]/div/div[2]/div/div[2]/div[3]/div/div[2]/button");
+	protected By btnCargue = By.xpath("//body/app-root/div/div/div/main-titulos/app-titulo/div/form/div[1]/div/accordion/accordion-group[8]/div/div[2]/div/div[2]/div[3]/div/div[1]/input");
+	protected By btnCargar = By.xpath("//*[@id='contenido']/main-titulos/app-titulo/div/form/div[1]/div/accordion/accordion-group[8]/div/div[2]/div/div[2]/div[3]/div/div[1]/label");
+	
+	//input[contains(@name,'fileCsv')]
+	
+	
+	protected By Cargue = By.id("//*[@id='fileCsv']");
+	
+	//protected By Cargue = By.xpath("//input[contains(@name,'fileCsv')]");
+	
+	
 }

@@ -67,7 +67,7 @@ public class GenerarReportePdf {
 			Image logoHeader = Image.getInstance(routeImageReport);// IMAGEN
 			logoHeader.scalePercent(50);
 			logoHeader.setWidthPercentage(100);
-			titulo = new Paragraph("Caso de Prueba: " + nameTest + "\n\n" + "Fecha Ejecución: " + fecha + "\n"
+			titulo = new Paragraph("Caso de Prueba: " + nameTest + "\n\n" + "Fecha EjecuciÃ³n: " + fecha + "\n"
 					+ "Analista: " + analyst + "\n" + "Tipo de Prueba: " + tipoPrueba, font);// TITULO PDF
 			titulo.setAlignment(1);
 			urlApp = new Paragraph("Url de prueba: " + url);

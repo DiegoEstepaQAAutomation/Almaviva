@@ -6,6 +6,7 @@ import java.util.Properties;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.demoautomatizacion.BaseTest;
 import com.demoautomatizacion.Pages.BasePage;
 import com.demoautomatizacion.test.utils.Listeners.TestListener;
 
@@ -18,8 +19,8 @@ import io.qameta.allure.Story;
 import utilities.GenerarReportePdf;
 
 @Listeners({ TestListener.class })
-@Epic("Liberación")
-@Feature("Liberación Test")
+@Epic("Liberaciï¿½n")
+@Feature("Liberaciï¿½n Test")
 
 public class LiberacionMercanciaTest extends BaseTest {
 	public Properties fileprops = new Properties();
@@ -52,7 +53,7 @@ public class LiberacionMercanciaTest extends BaseTest {
 
 	@Test(priority = 0, description = "")
 	@Severity(SeverityLevel.NORMAL)
-	@Description("Módulo Liberación")
+	@Description("Mï¿½dulo Liberaciï¿½n")
 	@Story("")
 	public void liberacion() throws Exception {
 

@@ -38,7 +38,6 @@ public class LiberacionPage extends LiberacionMap {
 		
 		click(locatorVariable(lblDesplegables, " Información General del Título "), folderPath, "Se ingresa a Información General del Título");
 
-		
 		click(locatorVariable(lblDesplegables, " Autorizaciones pendientes "), folderPath, "Se ingresa a Información General del Título");
 		click(locatorVariable(lblDesplegables, " Autorizaciones pendientes "), folderPath, "Se ingresa a Información General del Título");
 		

@@ -2,6 +2,7 @@ package com.Titulo.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import com.Titulo.Maps.ExpedirMap;
 import java.io.File;
@@ -106,7 +107,7 @@ public class ExpedirPage extends ExpedirMap {
 		// FALTA FECHA
 		// click(txtFechaEndoso);
 
-		// click(btnGuardarEndoso, folderPath, "");
+		//click(btnGuardarEndoso, folderPath, "");
 		waitInMs(20000);
 		// click(locatorVariable(lblOpciones, certificado), folderPath, "");
 		return this;
@@ -244,4 +245,102 @@ public class ExpedirPage extends ExpedirMap {
 		isEnabled(txtCorreo, folderPath, "Campo Correo No editable");
 		return this;
 	}
+	
+	@Step("Ver Bodega de cargue")
+	public ExpedirPage BodegaCargue(File folderPath,String NitClienteAsociado) throws Exception {
+		
+
+		
+		writeText(txtConsultarNit, NitClienteAsociado, folderPath, "Se consulta cliente con bodega propia");
+		scrollElementH(folderPath, btnModificarCliente, "Se desplaza hasta el boton modificar cliente");
+		click(btnModificarCliente, folderPath, "Se da click sobre modificar ");
+		scrollElementV(folderPath, btnTipoBodega, "Se dezplaza hacia tipo de bodega");
+		click(btnTipoBodega, folderPath, "Se da click en tipo de bodega");
+		scrollElementV(folderPath, lblTobacco, "Se dezplaza hacia el registro de bodega propia");
+		scrollElementV(folderPath, btnTipoBodega, "");
+		click(btnTipoBodega, folderPath, "");
+		
+		
+		
+		return this;
+	}
+	
+	@Step("Ver Bodega de cargue")
+	public ExpedirPage ValidacionExpedicion(File folderPath,String NitClienteAsociado,String TipoDato,String InformacionGeneral,String DetalleMercancia,String Plazo,String Poliza,String TipodeMercancia,String Mercancias,String Route) throws Exception {
+	
+		
+		
+		
+		x = new Object[2];
+		x[0] = btnDescargar;
+		x[1] = btnCargue;
+		
+		
+		
+		selectElementList(lblTipoDeDato, TipoDato);
+		writeText(txtNitCargue, NitClienteAsociado, folderPath, "Se realiza busqueda de cliente de cargue");
+		scrollElementV(folderPath, lblRegistro, "Se dezplaza hacia el ultimo registro");
+		scrollElementH(folderPath, ModificarRegistro, "Se dezplaza hacia modificar registro");
+		click(ModificarRegistro, folderPath, "Click en modificar registro");
+		
+		
+		desplazarseVertical(0,300);
+		click(locatorVariable(lblOpciones, InformacionGeneral), folderPath, "Click en menu opciones poliza");
+		click(locatorVariable(lblOpciones, InformacionGeneral), folderPath, "Click en menu opciones poliza");
+		
+		click(locatorVariable(lblOpciones, DetalleMercancia), folderPath, "Click en menu opciones poliza");
+		click(locatorVariable(lblOpciones, DetalleMercancia), folderPath, "Click en menu opciones poliza");
+		
+		desplazarseVertical(0,250);
+		click(locatorVariable(lblOpciones, Plazo), folderPath, "Click en menu opciones poliza");
+		click(locatorVariable(lblOpciones, Plazo), folderPath, "Click en menu opciones poliza");
+		
+		click(locatorVariable(lblOpciones, Poliza), folderPath, "Click en menu opciones poliza");
+		click(locatorVariable(lblOpciones, Poliza), folderPath, "Click en menu opciones poliza");
+		
+		desplazarseVertical(0,300);
+		
+		click(locatorVariable(lblOpciones, TipodeMercancia), folderPath, "Click en menu opciones poliza");
+		click(locatorVariable(lblOpciones, TipodeMercancia), folderPath, "Click en menu opciones poliza");
+		
+		desplazarseVertical(0,300);
+		click(locatorVariable(lblOpciones, Mercancias), folderPath, "Click en menu opciones poliza");
+		desplazarseVertical(0,800);
+		
+		
+		
+		
+		
+		//click(btnDescargar, folderPath, "Se da click en descargar");
+		
+		wait(6);
+		
+		fileUpload(Cargue, Route, folderPath, "Suba de archivo");
+		
+		//writeText(Cargue, Route);
+
+		System.out.println(Route);
+		
+	
+		wait(3);
+		
+		
+		val = validarElementos(x, t);
+		
+		
+		if (Boolean.TRUE.equals(val)) {
+			
+		} else {
+			GenerarReportePdf.closeTemplate("Error en la validación, alguno de los elementos no fueron encontrados");
+			Assert.fail("Error en la validación, alguno de los elementos no fueron encontrados");
+		}
+
+		
+		//click(btnCargar,folderPath,"Se da click en cargar");
+		
+		
+		return this;
+	}
+	
+	
 }

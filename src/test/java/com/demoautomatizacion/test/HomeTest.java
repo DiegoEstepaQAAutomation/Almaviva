@@ -3,6 +3,8 @@ package com.demoautomatizacion.test;
 import io.qameta.allure.*;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+import com.demoautomatizacion.BaseTest;
 import com.demoautomatizacion.test.utils.Listeners.TestListener;
 import java.io.File;
 import java.io.FileInputStream;

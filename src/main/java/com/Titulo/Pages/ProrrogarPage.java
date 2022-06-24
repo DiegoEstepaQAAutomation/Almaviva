@@ -28,32 +28,32 @@ public class ProrrogarPage extends ProrrogarMap {
 		desplazarseVertical(0, 160);
 
 		isEnabled(lblNit, folderPath, "Campo Nit No editable");
-		isEnabled(lblRazonSocial, folderPath, "Campo Nit No editable");
-		isEnabled(lblDireccion, folderPath, "Campo Nit No editable");
-		isEnabled(lblCiudad, folderPath, "Campo Nit No editable");
-		isEnabled(lblFechaExpedicion, folderPath, "Campo Nit No editable");
-		isEnabled(lblOficinaExpedicion, folderPath, "Campo Nit No editable");
-		isEnabled(lblTipoBodega, folderPath, "Campo Nit No editable");
+		isEnabled(lblRazonSocial, folderPath, "Campo Razon social No editable");
+		isEnabled(lblDireccion, folderPath, "Campo Direccion No editable");
+		isEnabled(lblCiudad, folderPath, "Campo Ciudad No editable");
+		isEnabled(lblFechaExpedicion, folderPath, "Campo Fecha Expedicion No editable");
+		isEnabled(lblOficinaExpedicion, folderPath, "Campo Oficina Expedicion No editable");
+		isEnabled(lblTipoBodega, folderPath, "Campo Tipo de Bodega No editable");
 
 		click(lblInformacionBasicaTitulo, folderPath, "Se da click en informacion basica de titulo");
 		click(OptionDetalleMercancia, folderPath, "Se da click en informacion basica de titulo");
 		desplazarseVertical(0, 140);
 
-		isEnabled(lblValorInicial, folderPath, "Campo Nit No editable");
-		isEnabled(lblMercanciaInicial, folderPath, "Campo Nit No editable");
-		isEnabled(lblValorMercanciaTitulo, folderPath, "Campo Nit No editable");
-		isEnabled(lblSaldo, folderPath, "Campo Nit No editable");
-		isEnabled(lblrelacionCredito, folderPath, "Campo Nit No editable");
-		isEnabled(lblSaldoCredito, folderPath, "Campo Nit No editable");
-		isEnabled(lblSaldoTitulo, folderPath, "Campo Nit No editable");
-		isEnabled(lblLiberacionesEjecutadas, folderPath, "Campo Nit No editable");
+		isEnabled(lblValorInicial, folderPath, "Campo Valor inicial No editable");
+		isEnabled(lblMercanciaInicial, folderPath, "Campo Mercancia inicial No editable");
+		isEnabled(lblValorMercanciaTitulo, folderPath, "Campo Titulo de Mercancia No editable");
+		isEnabled(lblSaldo, folderPath, "Campo Saldo No editable");
+		isEnabled(lblrelacionCredito, folderPath, "Campo Relacion Credito No editable");
+		isEnabled(lblSaldoCredito, folderPath, "Campo Saldo de credito No editable");
+		isEnabled(lblSaldoTitulo, folderPath, "Campo Saldo de titulo No editable");
+		isEnabled(lblLiberacionesEjecutadas, folderPath, "Campo Liberaciones Ejecutadas No editable");
 
 		click(OptionDetalleMercancia, folderPath, "Se da click en informacion basica de titulo");
 		click(CertificadoDepositoMercancia, folderPath, "Se da click en certificado deposito mercancia");
 		writeRandomNum(txtplazoDeposito, 2);
-		isEnabled(lblPlazoDeposito, folderPath, "Campo Nit No editable");
+		isEnabled(lblPlazoDeposito, folderPath, "Campo Plazo Deposito No editable");
 		writeRandomNum(txtplazoCertificado, 2);
-		isEnabled(lblNuevaFecha, folderPath, "Campo Nit No editable");
+		isEnabled(lblNuevaFecha, folderPath, "Campo Nueva Fecha No editable");
 
 		scrollElementV(folderPath, btnGuardarProrroga, "Se desplaza hasta el boton guardar ");
 		click(btnGuardarProrroga, folderPath, "Se da click en guardar prorroga");

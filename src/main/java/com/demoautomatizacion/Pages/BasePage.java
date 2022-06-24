@@ -38,6 +38,12 @@ public class BasePage {
 		this.driver = driver;
 		wait = new WebDriverWait(driver, 20);
 	}
+	
+	public void desplazarseVertical(int x, int y) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(" + x + "," + y + ")");
+		};
+	
 
 	// METODO DE ENVIAR TEXTO
 	public static void printConsole(String texto) {
@@ -52,8 +58,6 @@ public class BasePage {
 		return localizador;
 	}
 
-	
-	
 	
 	
 	//METODO I CLICK Y SENKEY
@@ -92,8 +96,6 @@ public class BasePage {
 		waitInMs(2000);
 		return readText;
 	}
-	
-	
 
 	// METODO PARA ESCRIBIR EN UN ELEMENTO
 	public void writeText(By elementLocation, String text, File folderPath, String steps) throws Exception {
@@ -112,6 +114,15 @@ public class BasePage {
 			driver.findElement(elementLocation).sendKeys(text);
 			waitInMs(2000);
 	}
+	
+	public void KeysWrite(String text) 
+	{
+		Keys.valueOf(text);
+		
+		
+	}
+	
+	
 
 	// METODO PARA DEVOLVER UN ELEMENTO
 	public WebElement getElement(By elementLocation, File folderPath, String steps) throws Exception {
@@ -175,14 +186,6 @@ public class BasePage {
 		waitInMs(2000);
 		driver.findElement(elemento).sendKeys(Keys.CONTROL + "a");
 		driver.findElement(elemento).sendKeys(Keys.DELETE);
-		waitInMs(2000);
-	}
-	
-	
-	public void Enter(By elemento) throws Exception {
-		waitInMs(2000);
-		driver.findElement(elemento).sendKeys(Keys.CONTROL + "a");
-		driver.findElement(elemento).sendKeys(Keys.ENTER);
 		waitInMs(2000);
 	}
 
@@ -316,12 +319,6 @@ public class BasePage {
 		js.executeScript("window.scrollBy(0,300)");
 		waitInMs(2000);
 	}
-	
-	public void desplazarseVertical(int x, int y) {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(" + x + "," + y + ")");
-		}
-	
 
 	// METODO DE SCROLL HACIA ARRIBA
 	public void scrollUp() {
@@ -443,6 +440,17 @@ public class BasePage {
 		} catch (Exception e) {
 			GenerarReportePdf.closeTemplate(e.toString());
 		}
+	}
+	
+	
+	
+	public void fileUpFull(By elementLocation, String archive, String steps) throws Exception {
+				visibilityOfElementLocated(elementLocation);
+			File file = new File(archive);
+			WebElement ruta = driver.findElement(elementLocation);
+			ruta.sendKeys(file.getAbsolutePath());
+			waitInMs(2000);
+			
 	}
 
 	public void acceptAlert(File folderPath, String steps) throws Exception {

@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.util.Properties;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+import com.demoautomatizacion.BaseTest;
 import com.demoautomatizacion.Pages.BasePage;
 import com.demoautomatizacion.test.utils.Listeners.TestListener;
 

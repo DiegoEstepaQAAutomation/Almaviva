@@ -11,7 +11,7 @@ public class BodegaMap extends BasePage {
 		super(driver);
 	}
 
-	protected By crearBodega = By.xpath("//*[@id='contenido']/app-main/app-home/div/div[2]/div/a");
+	protected By crearBodega = By.xpath("//*[@id='contenido']/app-main/app-home/div/div[2]/div/a");  //va una a
 	protected By CodigoB = By.xpath("//*[@formcontrolname='codigo']");
 
 	protected By Obligatorio1 = By.xpath("//*[@id='contenido']/app-main/bodega-crear/div/form/div[2]/div/div");

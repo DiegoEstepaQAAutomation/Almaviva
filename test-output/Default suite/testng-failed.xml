@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.demoautomatizacion.test.LiberacionMercanciaTest">
+      <class name="com.demoautomatizacion.test.ExpedirTest">
         <methods>
           <include name="inicializar"/>
+          <include name="modificarExpedir"/>
           <include name="tearDown"/>
-          <include name="liberacion"/>
         </methods>
-      </class> <!-- com.demoautomatizacion.test.LiberacionMercanciaTest -->
+      </class> <!-- com.demoautomatizacion.test.ExpedirTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

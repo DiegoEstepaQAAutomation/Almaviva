@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-06-16T14:32:35 COT" name="Default suite" finished-at="2022-06-16T14:35:19 COT" duration-ms="163256">
+  <suite started-at="2022-06-08T15:55:44 COT" name="Default suite" finished-at="2022-06-08T15:57:20 COT" duration-ms="95898">
     <groups>
     </groups>
-    <test started-at="2022-06-16T14:32:35 COT" name="Default test" finished-at="2022-06-16T14:35:19 COT" duration-ms="163256">
-      <class name="com.demoautomatizacion.test.LiberacionMercanciaTest">
-        <test-method is-config="true" signature="inicializar()[pri:0, instance:com.demoautomatizacion.test.LiberacionMercanciaTest@6a0ac48e]" started-at="2022-06-16T14:32:35 COT" name="inicializar" finished-at="2022-06-16T14:32:39 COT" duration-ms="3222" status="PASS">
+    <test started-at="2022-06-08T15:55:44 COT" name="Default test" finished-at="2022-06-08T15:57:20 COT" duration-ms="95898">
+      <class name="com.demoautomatizacion.test.AnularTituloTest">
+        <test-method is-config="true" signature="inicializar()[pri:0, instance:com.demoautomatizacion.test.AnularTituloTest@2063c53e]" started-at="2022-06-08T15:55:44 COT" name="inicializar" finished-at="2022-06-08T15:55:51 COT" duration-ms="6676" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicializar -->
-        <test-method signature="liberacion()[pri:0, instance:com.demoautomatizacion.test.LiberacionMercanciaTest@6a0ac48e]" started-at="2022-06-16T14:32:39 COT" name="liberacion" finished-at="2022-06-16T14:35:18 COT" duration-ms="159556" status="PASS">
+        <test-method signature="crearExpedir()[pri:0, instance:com.demoautomatizacion.test.AnularTituloTest@2063c53e]" started-at="2022-06-08T15:55:51 COT" name="crearExpedir" description="Anular título" finished-at="2022-06-08T15:57:19 COT" duration-ms="88393" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- liberacion -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.demoautomatizacion.test.LiberacionMercanciaTest@6a0ac48e]" started-at="2022-06-16T14:35:18 COT" name="tearDown" finished-at="2022-06-16T14:35:19 COT" duration-ms="199" status="PASS">
+        </test-method> <!-- crearExpedir -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.demoautomatizacion.test.AnularTituloTest@2063c53e]" started-at="2022-06-08T15:57:19 COT" name="tearDown" finished-at="2022-06-08T15:57:20 COT" duration-ms="504" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.demoautomatizacion.test.LiberacionMercanciaTest -->
+      </class> <!-- com.demoautomatizacion.test.AnularTituloTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

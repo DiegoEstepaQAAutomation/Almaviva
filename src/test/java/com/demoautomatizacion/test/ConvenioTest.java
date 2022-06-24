@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
 import org.testng.annotations.Listeners;
+
+import com.demoautomatizacion.BaseTest;
 import com.demoautomatizacion.test.utils.Listeners.TestListener;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;

@@ -6,6 +6,7 @@ import java.util.Properties;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.demoautomatizacion.BaseTest;
 import com.demoautomatizacion.Pages.BasePage;
 import com.demoautomatizacion.test.utils.Listeners.TestListener;
 
@@ -107,6 +108,62 @@ public class ExpedirTest extends BaseTest {
 		
 		GenerarReportePdf.closeTemplate("");
 	}
+	
+	
+	@Test(priority = 1, description = "Validacion")
+	@Severity(SeverityLevel.NORMAL)
+	@Description("Módulo Expedir")
+	@Story("Modificación de expedir")
+	public void CargueBodega() throws Exception {
+		
+		File folderPath = BasePage.createFolder(getProperties().getProperty("nameFolderE"),
+				getProperties().getProperty("path"));
+
+		login(getProperties().getProperty("CargueBodegaPropio"), getProperties().getProperty("usuario2"),
+				getProperties().getProperty("password"));
+
+		home.modulo(folderPath, getProperties().getProperty("ModuloC"), getProperties().getProperty("SubmoduloC"));
+		
+		
+		expedir.BodegaCargue(folderPath, getProperties().getProperty("NitClienteAsociado"));
+		
+
+		
+		GenerarReportePdf.closeTemplate("");
+		
+	}
+	
+	
+	@Test(priority = 1, description = "Modificar expedir")
+	@Severity(SeverityLevel.NORMAL)
+	@Description("Módulo Expedir")
+	@Story("Modificación de expedir")
+	public void CargueValidacion() throws Exception {
+		
+		File folderPath = BasePage.createFolder(getProperties().getProperty("nameFolderE"),
+				getProperties().getProperty("path"));
+
+		login(getProperties().getProperty("TestCargue"), getProperties().getProperty("usuario2"),
+				getProperties().getProperty("password"));
+
+		home.modulo(folderPath, getProperties().getProperty("ModuloT"), getProperties().getProperty("SubModuloExpedir"));
+		
+
+		expedir.ValidacionExpedicion(folderPath, getProperties().getProperty("NitClienteAsociado"),getProperties().getProperty("TipoDato"),getProperties().getProperty("InformacionGeneral"), getProperties().getProperty("DetalleMercancia"), getProperties().getProperty("Plazo"), getProperties().getProperty("Poliza"), getProperties().getProperty("TipodeMercancia"), getProperties().getProperty("Mercancias"),getProperties().getProperty("Route"));
+		
+		GenerarReportePdf.closeTemplate("");
+		
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@Test(priority = 2, description = "Consultar expedir")
 	@Severity(SeverityLevel.NORMAL)
