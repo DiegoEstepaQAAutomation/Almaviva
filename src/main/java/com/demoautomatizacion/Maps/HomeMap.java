@@ -13,4 +13,6 @@ public class HomeMap extends BasePage {
 
 	protected By lblModulo = By.xpath("//*[@id='sidebar']/ul/li/div/a[contains(text(),'{0}')]");
 	protected By lblSubModulo = By.xpath("//*[@id='sidebar']/ul/li/div/ul/li/div/a[contains(text(),'{0}')]");
+	
+	protected By lblSubmoduloS = By.xpath("//*[@id='sidebar']/ul/li/div/ul/li/div/a[(text()='{0}')]");
 }

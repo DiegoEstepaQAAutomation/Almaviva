@@ -1,3 +1,4 @@
+
 package com.demoautomatizacion.test;
 
 import java.io.File;
@@ -125,7 +126,9 @@ public class ExpedirTest extends BaseTest {
 		home.modulo(folderPath, getProperties().getProperty("ModuloC"), getProperties().getProperty("SubmoduloC"));
 		
 		
-		expedir.BodegaCargue(folderPath, getProperties().getProperty("NitClienteAsociado"));
+		expedir.BodegaCargue(folderPath, getProperties().getProperty("NitClienteAsociado"),getProperties().getProperty("Mercancias"));
+		
+		
 		
 
 		
@@ -149,7 +152,7 @@ public class ExpedirTest extends BaseTest {
 		home.modulo(folderPath, getProperties().getProperty("ModuloT"), getProperties().getProperty("SubModuloExpedir"));
 		
 
-		expedir.ValidacionExpedicion(folderPath, getProperties().getProperty("NitClienteAsociado"),getProperties().getProperty("TipoDato"),getProperties().getProperty("InformacionGeneral"), getProperties().getProperty("DetalleMercancia"), getProperties().getProperty("Plazo"), getProperties().getProperty("Poliza"), getProperties().getProperty("TipodeMercancia"), getProperties().getProperty("Mercancias"),getProperties().getProperty("Route"));
+		expedir.ValidacionExpedicion(folderPath, getProperties().getProperty("NitClienteAsociado"),getProperties().getProperty("TipoDato"),getProperties().getProperty("InformacionGeneral"), getProperties().getProperty("DetalleMercancia"), getProperties().getProperty("Plazo"), getProperties().getProperty("Poliza"), getProperties().getProperty("TipodeMercancia"), getProperties().getProperty("Mercancias"),getProperties().getProperty("Route"),getProperties().getProperty("RouteA"),getProperties().getProperty("RouteB"));
 		
 		GenerarReportePdf.closeTemplate("");
 		
@@ -157,7 +160,93 @@ public class ExpedirTest extends BaseTest {
 
 	
 	
+	//VALIDACIONES DE SEGUNDA HISTORIA DE USUARIO SOBRE LIBERACIONES Y EXPEDICIONES
 	
+	@Test(priority = 1, description = "Modificar expedir")
+	@Severity(SeverityLevel.NORMAL)
+	@Description("Módulo Expedir")
+	@Story("Modificación de expedir")
+	public void ValidacionCancelado() throws Exception {
+		
+		File folderPath = BasePage.createFolder(getProperties().getProperty("nameFolderE"),
+				getProperties().getProperty("path"));
+
+		login(getProperties().getProperty("TestCargue"), getProperties().getProperty("usuario2"),
+				getProperties().getProperty("password"));
+
+		home.modulo(folderPath, getProperties().getProperty("ModuloT"), getProperties().getProperty("SubModuloExpedir"));
+		
+		expedir.ExpedirCancelar(folderPath, getProperties().getProperty("TituloCancelado"), getProperties().getProperty("Mercancias"));
+		
+		GenerarReportePdf.closeTemplate("");
+	}
+	
+	
+	
+	@Test(priority = 1, description = "Modificar expedir")
+	@Severity(SeverityLevel.NORMAL)
+	@Description("Módulo Expedir")
+	@Story("Modificación de expedir")
+	public void ValidacionLiberado() throws Exception {
+		
+		File folderPath = BasePage.createFolder(getProperties().getProperty("nameFolderE"),
+				getProperties().getProperty("path"));
+
+		login(getProperties().getProperty("TestCargue"), getProperties().getProperty("usuario2"),
+				getProperties().getProperty("password"));
+
+		home.modulo(folderPath, getProperties().getProperty("ModuloT"), getProperties().getProperty("SubModuloLiberacion"));
+	
+		expedir.ValidacionLiberacion(folderPath, getProperties().getProperty("TituloLiberacion"), getProperties().getProperty("Detalle"));
+		
+		GenerarReportePdf.closeTemplate("");
+	}
+	
+	
+	@Test(priority = 1, description = "Modificar expedir")
+	@Severity(SeverityLevel.NORMAL)
+	@Description("Módulo Expedir")
+	@Story("Modificación de expedir")
+	public void ValidacionMercanciaLiberada() throws Exception {
+		
+		File folderPath = BasePage.createFolder(getProperties().getProperty("nameFolderE"),
+				getProperties().getProperty("path"));
+
+		login(getProperties().getProperty("TestCargue"), getProperties().getProperty("usuario2"),
+				getProperties().getProperty("password"));
+
+		home.modulo(folderPath, getProperties().getProperty("ModuloT"), getProperties().getProperty("SubModuloLiberacion"));
+		
+		expedir.ObjetoPresente(folderPath, getProperties().getProperty("TituloaLiberar"), getProperties().getProperty("Detalle"));
+		
+
+		GenerarReportePdf.closeTemplate("");
+		
+	}
+	
+
+	
+	@Test(priority = 1, description = "Modificar expedir")
+	@Severity(SeverityLevel.NORMAL)
+	@Description("Módulo Expedir")
+	@Story("Modificación de expedir")
+	public void ValidacionTituloLiberado() throws Exception {
+		
+		File folderPath = BasePage.createFolder(getProperties().getProperty("nameFolderE"),
+				getProperties().getProperty("path"));
+
+		login(getProperties().getProperty("TestCargue"), getProperties().getProperty("usuario2"),
+				getProperties().getProperty("password"));
+
+		home.modulo(folderPath, getProperties().getProperty("ModuloT"), getProperties().getProperty("SubModuloExpedir"));
+
+		
+		expedir.ValidacionMercanciaLiberada(folderPath, getProperties().getProperty("TituloLiberado"), getProperties().getProperty("Detalle"));
+		
+		
+		GenerarReportePdf.closeTemplate("");
+		
+	}
 	
 	
 	

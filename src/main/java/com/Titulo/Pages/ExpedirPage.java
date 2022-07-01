@@ -14,6 +14,13 @@ public class ExpedirPage extends ExpedirMap {
 	Object[] x;
 	boolean val;
 	int t = 15;
+	
+	
+	String ValidacionCargue = "542369, 542370, 542371";
+	String ValidacionTitulos = "543825";
+	String ValidarLiberacion = "543826, 543828, 543832, 543826";
+	String ValidarMercanciaLiberada = "543829, 543830";
+	String ObjetoPresente = "543831";
 
 	public ExpedirPage(WebDriver driver) {
 		super(driver);
@@ -53,13 +60,13 @@ public class ExpedirPage extends ExpedirMap {
 			writeText(txtNitRazonSocial, n, folderPath, "Se ingresa el dato Nit");
 			click(seleccionarNitRazon);
 			waitInMs(2000);
-			click(locatorVariable(lblOpciones, informacionG), folderPath, "");
+			click(locatorVariable(lblOpciones, informacionG), folderPath, "Click en elemento");
 			scrollDown();
 			waitInMs(500);
 			selectElementList(lblOficinaResponsable, o);
 			selectElementList(lblTipoBodega, tb);
 			click(lblBodega);
-			click(lblBodegaOpcion, folderPath, "");
+			click(lblBodegaOpcion, folderPath, "click en opcion");
 
 		} else {
 			printConsole("Error");
@@ -212,7 +219,7 @@ public class ExpedirPage extends ExpedirMap {
 		click(btnModificar, folderPath, "Click en modificar");
 
 		click(locatorVariable(lblOpciones, poliza), folderPath, "Click en opciones poliza");
-		listRandom(lblPoliza, folderPath, "");
+		listRandom(lblPoliza, folderPath, "Se selecciona un objeto random");
 		click(locatorVariable(lblOpciones, poliza), folderPath, "Click en opciones poliza");
 		
 		click(locatorVariable(lblOpciones, tipoMercancia), folderPath, "Click en opciones tipo mercancia");
@@ -246,27 +253,191 @@ public class ExpedirPage extends ExpedirMap {
 		return this;
 	}
 	
-	@Step("Ver Bodega de cargue")
-	public ExpedirPage BodegaCargue(File folderPath,String NitClienteAsociado) throws Exception {
+	
+	//VALIDACIONES DE SEGUNDA HISTORIA DE USUARIO SOBRE TITULOS Y LIBERACIONES
+	
+	
+	@Step("Ver expedir")
+	public ExpedirPage ExpedirCancelar(File folderPath,String TituloCancelado,String Mercancias) throws Exception 
+	{
+		
+		writeText(txtBuscar, TituloCancelado,folderPath, "Se escribe Id de titulo ");
+		click(btnBusquedaTitulo, folderPath, "click busqueda titulo");
+		scrollElementH(folderPath, ModificarCancelado, "Se desplaza hasta el elemento deseado");
+		click(ModificarCancelado, folderPath, "click sobre modificar elemento");
+		click(locatorVariable(lblOpciones, Mercancias), folderPath, "Click en Mercancias");
+		scrollElementV(folderPath, btnCantidadInicial, "Se desplaza hasta el elemento");
+		
+		screenshot(folderPath ,"Estos son los casos: " + ValidacionTitulos);
+		return this;
+	}
+
+	
+	@Step("Ver expedir")
+	public ExpedirPage ValidacionLiberacion(File folderPath,String TituloLiberacion,String Detalle) throws Exception 
+	{
 		
 
 		
-		writeText(txtConsultarNit, NitClienteAsociado, folderPath, "Se consulta cliente con bodega propia");
-		scrollElementH(folderPath, btnModificarCliente, "Se desplaza hasta el boton modificar cliente");
-		click(btnModificarCliente, folderPath, "Se da click sobre modificar ");
-		scrollElementV(folderPath, btnTipoBodega, "Se dezplaza hacia tipo de bodega");
-		click(btnTipoBodega, folderPath, "Se da click en tipo de bodega");
-		scrollElementV(folderPath, lblTobacco, "Se dezplaza hacia el registro de bodega propia");
-		scrollElementV(folderPath, btnTipoBodega, "");
-		click(btnTipoBodega, folderPath, "");
 		
+		
+		
+		writeText(txtBuscaTitulo, TituloLiberacion, folderPath, "Se digita el titulo a buscar");
+		click(lblCodigoLiberacion, folderPath, "");
+		click(locatorVariable(lblOpciones2, " Detalle de mercancía "), folderPath, "Click en detalle  Mercancias");
+		
+		scrollElementV(folderPath, locatorVariable(lblCamposDetalleMercancia, "Cant. Inicial"), "Se desplaza hasta el campo detalle de mercancia");
+		
+		
+		
+		
+		scrollElementV(folderPath, locatorVariable(lblCamposDetalleMercancia, "Valor Total"), "Click en opciones titulo");
+		
+		scrollElementV(folderPath, locatorVariable(lblCamposDetalleMercancia, "Acción"), "Click en opciones titulo");
+		
+		screenshot(folderPath ,"Estos son los casos: " + ValidarLiberacion);
+		
+		return this;
+		
+	}
+	
+	@Step("Ver expedir")
+	public ExpedirPage ValidacionMercanciaLiberada(File folderPath,String TituloLiberado,String Detalle) throws Exception 
+	{ 
+		
+		//writeText(BuscarTitulo, TituloLiberado, folderPath, "Se digita el titulo a buscar");
+		
+		writeText(BuscarTitulo, TituloLiberado);
+		
+		scrollElementH(folderPath, ModificartituloLiberado, "Se desplaza hasta la opción modificar ");
+
+        click(ModificartituloLiberado, folderPath, "Se da click sobre modificar ");
+        
+        scrollElementV(folderPath, locatorVariable(lblOpciones2, " Mercancías "), "Se desplaza hacia la opcion mercancias");
+        
+        click(locatorVariable(lblOpciones2, " Mercancías "), folderPath, "Click en Mercancias");
+		
+        
+        scrollElementV(folderPath, btnCancelar, "Se desplaza hasta la opcion cancelar");
+        
+        
+        //desplazarseVertical(0, 400);
+		
+		click(btnCancelar, folderPath, "Click en cancelar");
+		
+		writeText(BuscarTitulo, TituloLiberado);
+		
+		scrollElementH(folderPath, VisualizarTitulo, "Se desplaza hasta la opción Ver cupo");
+		
+		click(VisualizarTitulo, folderPath, "Se ingresa a ver Cupo");
+		
+		scrollElementV(folderPath, locatorVariable(lblOpciones2, " Mercancías "), "Se desplaza hacia la opcion mercancias");
+	        
+	    click(locatorVariable(lblOpciones2, " Mercancías "), folderPath, "Click en Mercancias");
+	    scrollElementV(folderPath, btnCancelar, "click en la opcion cancelar");
+	    
+	    //desplazarseVertical(0, 400);
+			
+	    click(btnCancelar, folderPath, "Click en cancelar");
+	
+		screenshot(folderPath ,"Estos son los casos: " + ValidarMercanciaLiberada);
+		
+		
+		
+		return this;
+		
+		
+	}
+	
+	
+	@Step("Ver expedir")
+	public ExpedirPage ObjetoPresente(File folderPath,String TituloaLiberar,String Detalle) throws Exception 
+	{ 
+		
+		
+		writeText(txtBuscaTitulo, TituloaLiberar, folderPath, Detalle);
+		click(lblCodigoLiberacion, folderPath, Detalle);
+		click(locatorVariable(lblOpciones2, " Detalle de mercancía "), folderPath, "Click en Mercancias");
+		
+		scrollElementV(folderPath, btnDone, "Se desplaza hasta el boton ok");
+		scrollElementH(folderPath, cbxAccion, "Se desplaza hasta el checkbox de accion");
+		click(cbxAccion, folderPath, "Se da click sobre el checkbox de accion");
+		
+		/*click(btnDone, folderPath, Detalle);
+		
+		desplazarseVertical(600, 0);
+		
+		writeText(txtBuscaTitulo, TituloaLiberar, folderPath, Detalle);
+		
+		click(lblCodigoLiberacion, folderPath, Detalle);
+		
+		scrollElementV(folderPath, btnDone, Detalle);*/
+		
+		screenshot(folderPath ,"Estos son los casos: " + ObjetoPresente);
+		
+		return this;
+		
+	}
+	
+	@Step("Ver expedir")
+	public ExpedirPage ValidacionExpedirLiberacion(File folderPath,String TituloLiberado,String Detalle,String Mercancias) throws Exception 
+	{ 
+		
+		writeText(txtBuscaTitulo, TituloLiberado, folderPath, "Se digita el titulo a buscar");
+		scrollElementH(folderPath, ModificartituloLiberado, "Se desplaza al elemento");
+		click(ModificartituloLiberado, folderPath, "click en modificar articulo");
+		click(locatorVariable(lblOpciones, Mercancias), folderPath, "Click en Mercancias");
+		scrollElementV(folderPath, btnObservarTitulo, "Se desplaza hasta la opcion observar titulo");
+		click(btnObservarTitulo, folderPath, "click en observar titulo");
+		click(btnCancelarvista, folderPath, "click en cancelar vista");
+		
+		
+		
+		
+		
+		return this;
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	@Step("Ver Bodega de cargue")
+	public ExpedirPage BodegaCargue(File folderPath,String NitClienteAsociado,String Mercancias) throws Exception {
+		
+
+		
+		
+		scrollElementH(folderPath, btnModificarCliente, "Se desplaza hasta el boton modificar cliente");
+		click(ModificarCancelado, folderPath, NitClienteAsociado);
+		click(locatorVariable(lblOpciones, Mercancias), folderPath, "Click en Mercancias");
+		desplazarseVertical(0,400);
+		click(btnCancelarEstado, folderPath, Mercancias);
+		scrollElementH(folderPath, ModificarAplicado, "Se desplaza hasta el boton modificar cliente");
+		click(ModificarAplicado, folderPath, Mercancias);
+		click(locatorVariable(lblOpciones, Mercancias), folderPath, "Click en Mercancias");
+		desplazarseVertical(0,400);
+		click(btnCancelarEstado, folderPath, Mercancias);
+		
+		scrollElementH(folderPath, ModificarAnulado, "Se desplaza hasta el boton modificar cliente");
+		scrollElementV(folderPath, ModificarAnulado, "Se desplaza hasta el boton modificar cliente");
+		click(ModificarAnulado, folderPath, Mercancias);
+		click(locatorVariable(lblOpciones, Mercancias), folderPath, "Click en Mercancias");
+		desplazarseVertical(0,400);
+		click(btnCancelarEstado, folderPath, Mercancias);
+	
 		
 		
 		return this;
 	}
 	
 	@Step("Ver Bodega de cargue")
-	public ExpedirPage ValidacionExpedicion(File folderPath,String NitClienteAsociado,String TipoDato,String InformacionGeneral,String DetalleMercancia,String Plazo,String Poliza,String TipodeMercancia,String Mercancias,String Route) throws Exception {
+	public ExpedirPage ValidacionExpedicion(File folderPath,String NitClienteAsociado,String TipoDato,String InformacionGeneral,String DetalleMercancia,String Plazo,String Poliza,String TipodeMercancia,String Mercancias,String Route,String RouteA,String RouteB) throws Exception {
 	
 		
 		
@@ -283,17 +454,22 @@ public class ExpedirPage extends ExpedirMap {
 		scrollElementH(folderPath, ModificarRegistro, "Se dezplaza hacia modificar registro");
 		click(ModificarRegistro, folderPath, "Click en modificar registro");
 		
+		//waitInMs(30);
+		
+		
+		
+		
 		
 		desplazarseVertical(0,300);
 		click(locatorVariable(lblOpciones, InformacionGeneral), folderPath, "Click en menu opciones poliza");
 		click(locatorVariable(lblOpciones, InformacionGeneral), folderPath, "Click en menu opciones poliza");
 		
-		click(locatorVariable(lblOpciones, DetalleMercancia), folderPath, "Click en menu opciones poliza");
-		click(locatorVariable(lblOpciones, DetalleMercancia), folderPath, "Click en menu opciones poliza");
+		click(locatorVariable(lblOpciones, DetalleMercancia), folderPath, "Click en Detalle Mercancia");
+		click(locatorVariable(lblOpciones, DetalleMercancia), folderPath, "Click en Detalle Mercancia");
 		
 		desplazarseVertical(0,250);
-		click(locatorVariable(lblOpciones, Plazo), folderPath, "Click en menu opciones poliza");
-		click(locatorVariable(lblOpciones, Plazo), folderPath, "Click en menu opciones poliza");
+		click(locatorVariable(lblOpciones, Plazo), folderPath, "Click en Plazo");
+		click(locatorVariable(lblOpciones, Plazo), folderPath, "Click en Plazo");
 		
 		click(locatorVariable(lblOpciones, Poliza), folderPath, "Click en menu opciones poliza");
 		click(locatorVariable(lblOpciones, Poliza), folderPath, "Click en menu opciones poliza");
@@ -304,37 +480,41 @@ public class ExpedirPage extends ExpedirMap {
 		click(locatorVariable(lblOpciones, TipodeMercancia), folderPath, "Click en menu opciones poliza");
 		
 		desplazarseVertical(0,300);
-		click(locatorVariable(lblOpciones, Mercancias), folderPath, "Click en menu opciones poliza");
-		desplazarseVertical(0,800);
+		click(locatorVariable(lblOpciones, Mercancias), folderPath, "Click en Mercancias");
 		
 		
+		scrollElementV(folderPath, btnDescargar, "Se dezplaza hasta elemento ");
 		
+			
+		click(btnDescargar, folderPath, "");
 		
+		waitInMs(3);
 		
-		//click(btnDescargar, folderPath, "Se da click en descargar");
+		fileUpFull(btnCargue, Route);
+		
+		fileUpFull(btnCargue, RouteA);
+		
+		fileUpFull(btnCargue, RouteB);
+		
+		scrollElementV(folderPath, CheckBox, "Se dezplaza hasta checkbox");
+		
 		
 		wait(6);
 		
-		fileUpload(Cargue, Route, folderPath, "Suba de archivo");
 		
-		//writeText(Cargue, Route);
-
-		System.out.println(Route);
-		
+		screenshot(folderPath ,"Estos son los casos: " + ValidacionCargue);
 	
-		wait(3);
-		
-		
-		val = validarElementos(x, t);
-		
 		
 		if (Boolean.TRUE.equals(val)) {
+			
+			
+			
 			
 		} else {
 			GenerarReportePdf.closeTemplate("Error en la validación, alguno de los elementos no fueron encontrados");
 			Assert.fail("Error en la validación, alguno de los elementos no fueron encontrados");
 		}
-
+	
 		
 		//click(btnCargar,folderPath,"Se da click en cargar");
 		

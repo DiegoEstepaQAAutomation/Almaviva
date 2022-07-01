@@ -57,7 +57,44 @@ public class BasePage {
 		By localizador = By.xpath(kk);
 		return localizador;
 	}
+	
+	
+    @Attachment(value = "{0}", type = "text/plain")
 
+    public static String saveTextLog(String texto) {
+
+        System.out.println(texto);
+
+        return texto;
+
+    }
+    
+    @Attachment(value = "Screenshot", type = "image/png")
+
+    public  byte[] screenshot(File rutaCarpeta, String accion) throws IOException, DocumentException {
+
+        String hora = horaSistema();
+
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+        //String rutaImagen = rutaCarpeta + "\\" + hora + "_"+funcion+".png";
+
+        String rutaImagen = rutaCarpeta + "\\" + hora + ".png";
+
+        FileUtils.copyFile(scrFile, new File(rutaImagen));
+
+        GenerarReportePdf.createBody(accion, rutaImagen);
+
+        deleteFile(rutaImagen);
+
+
+
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+
+    }
+
+
+	
 	
 	
 	//METODO I CLICK Y SENKEY
@@ -110,7 +147,7 @@ public class BasePage {
 	}
 	
 	public void writeText(By elementLocation, String text) throws Exception {
-			visibilityOfElementLocated(elementLocation);
+			//visibilityOfElementLocated(elementLocation);
 			driver.findElement(elementLocation).sendKeys(text);
 			waitInMs(2000);
 	}
@@ -444,14 +481,18 @@ public class BasePage {
 	
 	
 	
-	public void fileUpFull(By elementLocation, String archive, String steps) throws Exception {
-				visibilityOfElementLocated(elementLocation);
+	public void fileUpFull(By elementLocation, String archive) throws Exception {
+			//	visibilityOfElementLocated(elementLocation);
 			File file = new File(archive);
 			WebElement ruta = driver.findElement(elementLocation);
 			ruta.sendKeys(file.getAbsolutePath());
 			waitInMs(2000);
 			
 	}
+	
+
+	
+	
 
 	public void acceptAlert(File folderPath, String steps) throws Exception {
 		driver.switchTo().alert().accept();

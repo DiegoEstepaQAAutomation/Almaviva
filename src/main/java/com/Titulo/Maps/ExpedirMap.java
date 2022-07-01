@@ -19,6 +19,7 @@ public class ExpedirMap extends BasePage {
 	protected By seleccionarNitRazon = By.xpath("//body/app-root/div/div/div/main-titulos/app-titulo/div/busqueda-cliente/form/div/ngb-typeahead-window/button[1]/ngb-highlight");
 	
 	protected By lblOpciones = By.xpath("//*[@id='contenido']/main-titulos/app-titulo/div/form/div/div/accordion/accordion-group/div/div/div/div/button[contains(text(),'{0}')]");
+	protected By lblOpciones2 = By.xpath("//button[(text()='{0}')]");
 	
 	protected By btnGuardarExpedir = By.xpath("//*[@id='contenido']/main-titulos/app-titulo/div/form/div/div/button[contains(text(),'Guardar')]");
 	// Opciones de cliente - gestión
@@ -112,6 +113,8 @@ public class ExpedirMap extends BasePage {
 	protected By txtTelefono = By.id("telefono");
 	protected By txtCorreo = By.id("correo");
 	
+	protected By txtBuscar = By.xpath("//*[@id='termino']");
+	
 	
 	
 	//ClienteCargueMasivo
@@ -130,14 +133,44 @@ public class ExpedirMap extends BasePage {
 	//*[@id="tbClientes"]/tbody/tr[9]/td[9]/div/a[1]
 	
 	
-	protected By btnDescargar = By.xpath("//*[@id='contenido']/main-titulos/app-titulo/div/form/div[1]/div/accordion/accordion-group[8]/div/div[2]/div/div[2]/div[3]/div/div[2]/button");
-	protected By btnCargue = By.xpath("//body/app-root/div/div/div/main-titulos/app-titulo/div/form/div[1]/div/accordion/accordion-group[8]/div/div[2]/div/div[2]/div[3]/div/div[1]/input");
-	protected By btnCargar = By.xpath("//*[@id='contenido']/main-titulos/app-titulo/div/form/div[1]/div/accordion/accordion-group[8]/div/div[2]/div/div[2]/div[3]/div/div[1]/label");
-	
-	//input[contains(@name,'fileCsv')]
+	protected By btnCancelar = By.xpath("//*[@id='contenido']/main-titulos/app-titulo/div/form/div[2]/div/button[2]");
 	
 	
+	protected By BuscarTitulo = By.xpath("//body/app-root/div/div/div/main-titulos/titulos-home/div/form/div[2]/input");
+	protected By ModificartituloLiberado = By.xpath("//*[@id='tbClientes']/tbody/tr[1]/td[9]/div/a[1]");
+	protected By VisualizarTitulo = By.xpath("//*[@id='tbClientes']/tbody/tr[1]/td[9]/div/a[1]");
+	
+	
+	
+	protected By ModificarCancelado = By.xpath("//*[@id='tbClientes']/tbody/tr[1]/td[9]/div/a[1]");
+	protected By btnCantidadInicial = By.xpath("//*[@id='tbMercancia']/thead/tr/th[3]");
+	
+	protected By ModificarAplicado = By.xpath("//*[@id='tbClientes']/tbody/tr[2]/td[9]/div/a[1]");
+	protected By ModificarAnulado = By.xpath("//*[@id='tbClientes']/tbody/tr[8]/td[9]/div/a[1]");
+	protected By btnCancelarEstado = By.xpath("//*[@id='contenido']/main-titulos/app-titulo/div/form/div[2]/div/button");
+	protected By txtBuscaTitulo = By.xpath("//*[@id='titulo']");
+	protected By txtBusquedaTermino = By.xpath("//*[@id='termino']");
+	protected By btnDescargar = By.xpath("//body/app-root/div/div/div/main-titulos/app-titulo/div/form/div[1]/div/accordion/accordion-group[7]/div/div[2]/div/div[2]/div[3]/div/div[2]/button");
+	
+	//*[@id="contenido"]/main-titulos/app-titulo/div/form/div[1]/div/accordion/accordion-group[7]/div/div[2]/div/div[2]/div[3]/div/div[2]/button
+	
+	protected By btnCargue = By.xpath("//input[contains(@id,'fileCsv')]");
+	protected By btnObservarTitulo = By.xpath("//*[@id='tbMercancia']/tbody/tr/td[10]/a");
+	protected By btnCancelarvista = By.xpath("//body/modal-container/div/div/app-consulta-liberacion-mercancia/div/div[2]/div[2]/button");
+	protected By CheckBox= By.xpath("//*[@id='contenido']/main-titulos/app-titulo/div/form/div[1]/div/accordion/accordion-group[7]/div/div[2]/div/div[2]/div[1]/table/tbody/tr[2]/td[9]/input");
+	
+	//input[contains(@name,'fileCsv')
+	
+	protected By btnupload = By.xpath("//*[@id='fileCsv']");
 	protected By Cargue = By.id("//*[@id='fileCsv']");
+	protected By lblCodigoLiberacion = By.xpath("//app-filtrotitulo/form/div/div/ngb-typeahead-window/button");
+	protected By btnBusquedaTitulo = By.xpath("//button[(text()=' Buscar ')]");
+	protected By lblCamposDetalleMercancia = By.xpath("//th[(text()='{0}')]");
+	
+	
+	protected By btnDone = By.xpath("//button[(text()=' Ok ')]");
+	
+	protected By cbxAccion = By.id("flexCheckChecked");
 	
 	//protected By Cargue = By.xpath("//input[contains(@name,'fileCsv')]");
 	

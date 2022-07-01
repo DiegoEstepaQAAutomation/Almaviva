@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="9" total="10" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-06-08T15:55:44 COT" name="Default suite" finished-at="2022-06-08T15:57:20 COT" duration-ms="95898">
+  <suite started-at="2022-06-30T10:10:36 COT" name="Default suite" finished-at="2022-06-30T10:11:39 COT" duration-ms="63251">
     <groups>
     </groups>
-    <test started-at="2022-06-08T15:55:44 COT" name="Default test" finished-at="2022-06-08T15:57:20 COT" duration-ms="95898">
-      <class name="com.demoautomatizacion.test.AnularTituloTest">
-        <test-method is-config="true" signature="inicializar()[pri:0, instance:com.demoautomatizacion.test.AnularTituloTest@2063c53e]" started-at="2022-06-08T15:55:44 COT" name="inicializar" finished-at="2022-06-08T15:55:51 COT" duration-ms="6676" status="PASS">
+    <test started-at="2022-06-30T10:10:36 COT" name="Default test" finished-at="2022-06-30T10:11:39 COT" duration-ms="63251">
+      <class name="com.demoautomatizacion.test.ExpedirTest">
+        <test-method is-config="true" signature="inicializar()[pri:0, instance:com.demoautomatizacion.test.ExpedirTest@3a2b2322]" started-at="2022-06-30T10:10:36 COT" name="inicializar" finished-at="2022-06-30T10:10:40 COT" duration-ms="4228" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicializar -->
-        <test-method signature="crearExpedir()[pri:0, instance:com.demoautomatizacion.test.AnularTituloTest@2063c53e]" started-at="2022-06-08T15:55:51 COT" name="crearExpedir" description="Anular título" finished-at="2022-06-08T15:57:19 COT" duration-ms="88393" status="PASS">
+        <test-method signature="ValidacionLiberado()[pri:1, instance:com.demoautomatizacion.test.ExpedirTest@3a2b2322]" started-at="2022-06-30T10:10:40 COT" name="ValidacionLiberado" description="Modificar expedir" finished-at="2022-06-30T10:11:39 COT" duration-ms="58338" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- crearExpedir -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.demoautomatizacion.test.AnularTituloTest@2063c53e]" started-at="2022-06-08T15:57:19 COT" name="tearDown" finished-at="2022-06-08T15:57:20 COT" duration-ms="504" status="PASS">
+        </test-method> <!-- ValidacionLiberado -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.demoautomatizacion.test.ExpedirTest@3a2b2322]" started-at="2022-06-30T10:11:39 COT" name="tearDown" finished-at="2022-06-30T10:11:39 COT" duration-ms="309" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.demoautomatizacion.test.AnularTituloTest -->
+      </class> <!-- com.demoautomatizacion.test.ExpedirTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

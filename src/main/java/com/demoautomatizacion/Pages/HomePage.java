@@ -24,6 +24,6 @@ public class HomePage extends HomeMap {
 	public void modulo(File folderPath, String modulo, String subModulo) throws Exception {
 		click(locatorVariable(lblModulo, modulo), folderPath, "Se ingresa al Módulo");
 		if (subModulo != null)
-			click(locatorVariable(lblSubModulo, subModulo), folderPath, "Se ingresa al Sub-módulo");
+			click(locatorVariable(lblSubmoduloS, subModulo), folderPath, "Se ingresa al Sub-módulo");
 	}
 }
